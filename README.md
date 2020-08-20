@@ -16,7 +16,7 @@ The general setup of the development is described in this predecessor lab and he
 
 The second essential prerequisite for implementing this lab is the configuration Azure Active Directory(AZ AD) and SAP Netwaver (SAP NW) to support the OAuth2 SAML Bearer Assertion Flow. 
 
-This detailed configuration of Azure AD and SAP NW is displayed in a Azure Developer College repository, provided by the German Microsoft One Commercial Partner(OCP) CSA team. 
+This configuration of Azure AD and SAP NW in details is explained in a Azure Developer College repository, provided by the German Microsoft One Commercial Partner(OCP) CSA team. 
 The full documentation can be found [here]( https://github.com/azuredevcollege/SAP). 
  
 Additional documentation about the assertion flow can be found in the 
@@ -33,6 +33,7 @@ After successfully implementing the detailed configuration [documentation]( http
 
 ## Azure AD Enterprise Application – SAP Netweaver 
 This App will later be used as clientId with corresponding secret. 
+
 ###Maintained parameters:
 
 ```
@@ -50,7 +51,7 @@ https://vhcala4hci.dummy.nodomain:50001/sap/bc/sec/oauth2/token
 
 
 ```
-Redirect URLs:
+Redirect URIs:
 https://vhcala4hci.dummy.nodomain:50001/sap/bc/sec/oauth2/token
 https://token.botframework.com/.auth/web/redirect
 ```
@@ -64,6 +65,7 @@ https://token.botframework.com/.auth/web/redirect
 ### Maintained parameters. 
 
 ```
+Redirect URIs:
 https://vhcala4hci.dummy.nodomain:50001/sap/bc/sec/oauth2/token
 https://mychatbot.com
 
@@ -79,10 +81,27 @@ https://mychatbot.com
 ### Bot Channels Registration - BOT-Chan-Teams - Settings
 Maintained OAuth Connection Settings:
 ```
-Clientid :  Client id oft the NW enterprise APP 
-Client secret: Client secret of the NW enterprise APP 
+Clientid :  Client id of the NW Enterprise APP 
+Client secret: Client secret of the NW Enterprise APP 
 Token Exchange URL: https://login.microsoftonline.com/common/oauth2/v2.0/token
+//Application ID URI of the App-Chatbot-Channel-Teams 
 Scopes: api://3d8fa3bd-e980-4a62-95ab-34366dec8c92/readSAPOData
 ```
 
 ![ BotServiceChannel_SAP_NW_OAUTH]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/BotServiceChannel_SAP_NW_OAUTH.png)
+
+## SAP Netweaver Configuration 
+This lab uses a SAP Enterprise Procurement Model (EPM) OData service. 
+The service EPM_REF_APPS_SHOP_SRV is referenced as shop in the EPM demo application. Further information about this shop OData service can be found [here]( https://developers.sap.com/tutorials/odata-02-exploration-epm.html
+).
+### Configuration of OAUTH 2.0 client
+When using the SAP NW development system. SAP OAuth 2.0 client has to be [configured]( https://github.com/azuredevcollege/SAP/blob/master/sap-oauth-saml-flow/SAPConfiguration/README.md#configure-scopes-in-sap
+)
+as following:
+![ SAP_OAUTH_SCOPE.png]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/SAP_OAUTH_SCOPE.png)
+
+In the SAP transaction PFCG the user role as to be [configured]( https://github.com/azuredevcollege/SAP/blob/master/sap-oauth-saml-flow/SAPConfiguration/README.md#generate-user
+)
+as following:
+![ SAP_ROLE_CONFIG
+]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation
