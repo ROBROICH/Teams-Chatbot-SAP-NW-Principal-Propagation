@@ -40,7 +40,6 @@ https://vhcala4hci.dummy.nodomain:50001/sap/bc/sec/oauth2/token
 
 ```
 
-API permissions granted 
 ![SAPNETWEAVERENTERPRISECONFIG]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_Netweaver_Config.png
 )
 
@@ -54,6 +53,8 @@ https://token.botframework.com/.auth/web/redirect
 ```
 
 ![SAPNETWEAVERAPPREDIRECTURI]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_Netweaver_APP_REDIRECT_URLS_IMPLICIT_GRANTS.png)
+Expose this App as API
+![ AAD_Netweaver_APP_AP]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_Netweaver_APP_API.png)
 
 ## Azure AD App registrations – APP-Chatbot-Channel-Teams
 
@@ -67,6 +68,6 @@ https://mychatbot.com
 
 ![ AAD_CHATBOT_APP_REDIRECT_URLS_IMPLICIT_GRANT
 ]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_CHATBOT_APP_REDIRECT_URLS_IMPLICIT_GRANTS.png)
-
-![ Teams-Chatbot-SAP-NW-Principal-Propagation]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_CHATBOT_APP_API_PERMISSIONS.png
+API permissions granted 
+![ AAD_CHATBOT_APP_API_PERMISSIONS]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_CHATBOT_APP_API_PERMISSIONS.png
 )
