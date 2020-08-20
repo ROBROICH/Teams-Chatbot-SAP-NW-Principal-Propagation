@@ -26,9 +26,10 @@ This lab is built based on the SAP NetWeaver AS ABAP and SAP BW 7.5 SP01 on SAP 
 The first chapter of this lab is intended to help validating the SAP Netweaver and Azure AD configuration based on the SAP Netweaver Developer Edition system configuration.
 
 # Development environment setup validation
-After successfully implementing the detailed configuration [documentation]( https://github.com/azuredevcollege/SAP) the Azure AD configuration should look as following based on the SAP CAL development system configuration:
+After successfully implementing the detailed configuration [documentation]( https://github.com/azuredevcollege/SAP) the Azure AD configuration should look as following based on the SAP CAL SAP NetWeaver AS ABAP and SAP BW 7.5 SP01 on SAP HANA SP10 [Developer Edition] system configuration:
 
 ## Azure AD Enterprise Application – SAP Netweaver 
+This App will later be used as clientId with corresponding secret. 
 Maintained parameters 
 
 ```
@@ -39,7 +40,7 @@ https://vhcala4hci.dummy.nodomain:50001/sap/bc/sec/oauth2/token
 
 ```
 
-
+API permissions granted 
 ![SAPNETWEAVERENTERPRISECONFIG]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_Netweaver_Config.png
 )
 
