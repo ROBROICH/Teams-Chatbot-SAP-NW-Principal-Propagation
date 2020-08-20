@@ -1,7 +1,7 @@
 # Hands-On Lab: Implementing a Node.JS client as Chatbot to achieve principal propagation between Azure and SAP Netweaver 
 
 # Introduction 
-This Hands-On lab demonstrates how to establish principal propagation, or known as an OAuth2 SAML Bearer Assertion Flow, between Azure AD and SAP Netweaver. 
+This Hands-On lab demonstrates how to establish principal propagation, or an OAuth2 SAML Bearer Assertion Flow, between Azure AD and SAP Netweaver. 
 
 In a nutshell this scenario enables Azure developers to implement cloud-native Azure applications and consume OData data-sources from SAP including applying the ABAP authorizations of the user-logged on to Azure AD. 
 
@@ -19,38 +19,5 @@ The second essential prerequisite for implementing this lab is the configuration
 This detailed configuration of Azure AD and SAP NW is displayed in the following Azure Developer College repository provided by the German Microsoft One Commercial Partner(OCP) CSA team. 
 The documentation can be found [here]( https://github.com/azuredevcollege/SAP). 
 
-
-
-
-
-When implementing the Microsoft Graph demonstrating the Azure Active Directory (AD) integration with functionality like SSO and API permissions is intended as an important aspect of this exercise. 
-
-Currently Azure AD integration with the SAP Graph (BETA) is not possible, a public Bearer token was used. 
-
-Furthermore, this hands-on tutorial will describe the complete setup of the development from environment from scratch. 
-
-This setup and corresponding documentation are intended for enabling developers to extend this example with their own ideas or customer scenarios. 
-# Business scenario and context
-This lab is developed based on a basic theoretical business scenario with the following assumptions and processes:
-* The call center agent or frontline employee uses Microsoft Teams as preferred user-interface
-* The customer is requesting an update about an order via email 
-* The call center agent processes the customer inquiry utilizing a chatbot in MS Teams
-* The first step of the business process is to the search the agents Outlook inbox for customer inquiries via the MS Graph API
-* After the customer is identified via the first- and last-name, the chatbot then enables the agent to search within the SAP sales order for the open order status via the SAP Graph API
-* Optional / Next step: The agent now could send an email using the MS Graph API to update the customer about the sales orders status. 
-
-
-Summarized: 
-
-The purpose of this lab is to demonstrate the simple integration of Microsoft and SAP business- and process-data utilizing modern and open APIs. 
-
-![BusinessScenario]( https://github.com/ROBROICH/TEAMS-Chatbot-Microsoft-SAP-Graph/blob/master/resources/ScenarioOverview.png)
-# Setup of the development environment 
-In order to run the lab and even more important to further extend this example, an essential aspect and exercise of this lab is to setup the development environment. Programming-environment and -language is Node.JS, therefore Java- or Java-Script knowledge is recommended. 
-The first action or hands on exercise is to install the following components in the development environment: 
-* [Visual Studio Code]( https://code.visualstudio.com/download)
-* [Microsoft Graph]( https://developer.microsoft.com/en-us/graph/graph-explorer)
-* [Git Client]( https://git-scm.com/download/win)
-* [NGORK Client]( https://github.com/Microsoft/botbuilder-samples.git) + Set the Windows PATH Enviornment Variable 
-* [Teams App Studio]( https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/build-and-test/app-studio-overview)
-
+This lab is built based on the SAP NetWeaver AS ABAP and SAP BW 7.5 SP01 on SAP HANA SP10 [Developer Edition] system, deployed on Azure via SAP[CAL]( https://cal.sap.com/)
+, that can be found [here]( https://blogs.sap.com/2013/05/16/developer-trial-editions-sap-netweaver-application-server-abap-and-sap-business-warehouse-powered-by-sap-hana/)
