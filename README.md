@@ -12,12 +12,30 @@ This lab demonstrates on the implementation of a basic Node.JS client as foundat
 # Development environment setup 
 This lab is an extension of the existing [Microsoft & SAP Graph Chatbot]( https://github.com/ROBROICH/TEAMS-Chatbot-Microsoft-SAP-Graph) Hands-On Lab. 
 
-The general setup of the development is described in this predecessor lab and hence it is recommended to implement this lab in case the development environment must be setup initially.
+The general setup of the development is described in this predecessor lab and hence it is recommended to implement this previous lab in case the development environment must be setup initially.
 
 The second essential prerequisite for implementing this lab is the configuration Azure Active Directory(AZ AD) and SAP Netwaver (SAP NW) to support the OAuth2 SAML Bearer Assertion Flow. 
 
-This detailed configuration of Azure AD and SAP NW is displayed in the following Azure Developer College repository provided by the German Microsoft One Commercial Partner(OCP) CSA team. 
+This detailed configuration of Azure AD and SAP NW is displayed in a Azure Developer College repository, provided by the German Microsoft One Commercial Partner(OCP) CSA team. 
 The documentation can be found [here]( https://github.com/azuredevcollege/SAP). 
+Additional documentation about the assertion flow can be found in the Principal propagation in a multi-cloud solution between Microsoft Azure and SAP Cloud Platform (SCP)
+ blog by Martin Raepple implemented on an alternative SAP technology 
+This lab is built based on the SAP NetWeaver AS ABAP and SAP BW 7.5 SP01 on SAP HANA SP10 [Developer Edition] system, deployed on Azure via SAP [CAL]( https://cal.sap.com/)
+, that can be found [here]( https://blogs.sap.com/2013/05/16/developer-trial-editions-sap-netweaver-application-server-abap-and-sap-business-warehouse-powered-by-sap-hana/). 
 
-This lab is built based on the SAP NetWeaver AS ABAP and SAP BW 7.5 SP01 on SAP HANA SP10 [Developer Edition] system, deployed on Azure via SAP[CAL]( https://cal.sap.com/)
-, that can be found [here]( https://blogs.sap.com/2013/05/16/developer-trial-editions-sap-netweaver-application-server-abap-and-sap-business-warehouse-powered-by-sap-hana/)
+The first chapter of this lab is intended to help validating the SAP Netweaver and Azure AD configuration based on the SAP Netweaver Developer Edition system configuration.
+
+# Development environment setup validation
+After successfully implementing the detailed configuration [documentation]( https://github.com/azuredevcollege/SAP) the Azure AD configuration should look as following based on the SAP CAL development system:
+
+## Azure AD Enterprise Application – SAP Netweaver 
+
+```
+Identifier: (Entity ID) http://A4H001
+Reply URL: (Assertion Consumer Service URL)
+https://vhcala4hci.dummy.nodomain:50001/sap/bc/sec/oauth2/token
+
+```
+
+![SAPNETWEAVERENTERPRISECONFIG]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_Netweaver_Config.png
+)
