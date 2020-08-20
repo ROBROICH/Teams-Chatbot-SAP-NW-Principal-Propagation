@@ -29,6 +29,7 @@ The first chapter of this lab is intended to help validating the SAP Netweaver a
 After successfully implementing the detailed configuration [documentation]( https://github.com/azuredevcollege/SAP) the Azure AD configuration should look as following based on the SAP CAL development system configuration:
 
 ## Azure AD Enterprise Application – SAP Netweaver 
+Maintained parameters 
 
 ```
 Identifier (Entity ID): http://A4H001
@@ -43,11 +44,28 @@ https://vhcala4hci.dummy.nodomain:50001/sap/bc/sec/oauth2/token
 )
 
 ## Azure AD App registrations – SAP Netweaver (Tab “All Applications”)
-![SAPNETWEAVERAPPREDIRECTURI]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_Netweaver_APP_REDIRECT_URLS_IMPLICIT_GRANTS.png)
+Maintained parameters. 
 
 ```
 https://vhcala4hci.dummy.nodomain:50001/sap/bc/sec/oauth2/token
 https://token.botframework.com/.auth/web/redirect
 
+```
+
+![SAPNETWEAVERAPPREDIRECTURI]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_Netweaver_APP_REDIRECT_URLS_IMPLICIT_GRANTS.png)
+
+## Azure AD App registrations – APP-Chatbot-Channel-Teams
+
+Maintained parameters. 
 
 ```
+https://vhcala4hci.dummy.nodomain:50001/sap/bc/sec/oauth2/token
+https://mychatbot.com
+
+```
+
+![ AAD_CHATBOT_APP_REDIRECT_URLS_IMPLICIT_GRANT
+]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_CHATBOT_APP_REDIRECT_URLS_IMPLICIT_GRANTS.png)
+
+![ Teams-Chatbot-SAP-NW-Principal-Propagation]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_CHATBOT_APP_API_PERMISSIONS.png
+)
