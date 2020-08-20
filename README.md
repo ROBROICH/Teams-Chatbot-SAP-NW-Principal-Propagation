@@ -21,7 +21,7 @@ The full documentation can be found [here]( https://github.com/azuredevcollege/S
  
 Additional documentation about the assertion flow can be found in the 
 [Principal propagation in a multi-cloud solution between Microsoft Azure and SAP Cloud Platform (SCP)
-]( https://blogs.sap.com/2020/07/17/principal-propagation-in-a-multi-cloud-solution-between-microsoft-azure-and-sap-cloud-platform-scp/) blog by Martin Raepple implemented on an alternative SAP technology. 
+]( https://blogs.sap.com/2020/07/17/principal-propagation-in-a-multi-cloud-solution-between-microsoft-azure-and-sap-cloud-platform-scp/) blog by Martin Raepple implemented on complementary SAP technology. 
 
 
 This lab is built based on the SAP NetWeaver AS ABAP and SAP BW 7.5 SP01 on SAP HANA SP10 [Developer Edition] system, deployed on Azure via SAP [CAL]( https://cal.sap.com/), that can be found [here]( https://blogs.sap.com/2013/05/16/developer-trial-editions-sap-netweaver-application-server-abap-and-sap-business-warehouse-powered-by-sap-hana/). 
@@ -33,33 +33,30 @@ After successfully implementing the detailed configuration [documentation]( http
 
 ## Azure AD Enterprise Application – SAP Netweaver 
 This App will later be used as clientId with corresponding secret. 
-Maintained parameters 
+###Maintained parameters:
 
 ```
 Identifier (Entity ID): http://A4H001
 Reply URL (Assertion Consumer Service URL):
 https://vhcala4hci.dummy.nodomain:50001/sap/bc/sec/oauth2/token
-
-
 ```
 
 ![SAPNETWEAVERENTERPRISECONFIG]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_Netweaver_Config.png
 )
 
 ## Azure AD App registrations – SAP Netweaver (Tab “All Applications”)
-### Maintained parameters. 
-). 
+### Maintained parameters:
 
 
 
 ```
+Redirect URLs:
 https://vhcala4hci.dummy.nodomain:50001/sap/bc/sec/oauth2/token
 https://token.botframework.com/.auth/web/redirect
-
 ```
 
 ![SAPNETWEAVERAPPREDIRECTURI]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_Netweaver_APP_REDIRECT_URLS_IMPLICIT_GRANTS.png)
-### Expose this App as API
+### Expose the Netweaver Enterprise App as API
 ![ AAD_Netweaver_APP_AP]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_Netweaver_APP_API.png)
 
 ## Azure AD App registrations – APP-Chatbot-Channel-Teams
@@ -74,16 +71,18 @@ https://mychatbot.com
 
 ![ AAD_CHATBOT_APP_REDIRECT_URLS_IMPLICIT_GRANT
 ]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_CHATBOT_APP_REDIRECT_URLS_IMPLICIT_GRANTS.png)
-### API permissions granted 
+### SAP Netweaver  Enterprise App API permissions granted to the Azure Bot Channel App
 ![ AAD_CHATBOT_APP_API_PERMISSIONS]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_CHATBOT_APP_API_PERMISSIONS.png
 )
 
+## Bot Channels Registration
+### Bot Channels Registration - BOT-Chan-Teams - Settings
+Maintained OAuth Connection Settings:
+```
+Clientid :  Client id oft the NW enterprise APP 
+Client secret: Client secret of the NW enterprise APP 
+Token Exchange URL: https://login.microsoftonline.com/common/oauth2/v2.0/token
+Scopes: api://3d8fa3bd-e980-4a62-95ab-34366dec8c92/readSAPOData
+```
 
-Chatbot APP:
-https://login.microsoftonline.com/common/oauth2/v2.0/token
-
-{ "error":"invalid_grant","error_description":"Provided authorization grant is invalid. Exception was Attribute 'Recipient' of element 'SubjectConfirmationData' is invalid. For more information, consult the kernel traces or the OAuth 2.0 trouble shooting SAP note 1688545" }
-
-https://www.itsfullofstars.de/2020/05/troubleshooting-recipient-in-subjectconfirmationdata-is-invalid/
-
-
+![ BotServiceChannel_SAP_NW_OAUTH(https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/BotServiceChannel_SAP_NW_OAUTH.png)
