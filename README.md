@@ -85,4 +85,4 @@ Token Exchange URL: https://login.microsoftonline.com/common/oauth2/v2.0/token
 Scopes: api://3d8fa3bd-e980-4a62-95ab-34366dec8c92/readSAPOData
 ```
 
-![ BotServiceChannel_SAP_NW_OAUTH(https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/BotServiceChannel_SAP_NW_OAUTH.png)
+![ BotServiceChannel_SAP_NW_OAUTH( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/BotServiceChannel_SAP_NW_OAUTH.png)
