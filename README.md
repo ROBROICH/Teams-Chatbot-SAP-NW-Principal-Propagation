@@ -42,8 +42,7 @@ Reply URL (Assertion Consumer Service URL):
 https://vhcala4hci.dummy.nodomain:50001/sap/bc/sec/oauth2/token
 ```
 
-![SAPNETWEAVERENTERPRISECONFIG]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_Netweaver_Config.png
-)
+![SAPNETWEAVERENTERPRISECONFIG]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_Netweaver_Config.png)
 
 ## Azure AD App registrations – SAP Netweaver (Tab “All Applications”)
 ### Maintained parameters:
@@ -103,5 +102,13 @@ as following:
 In the SAP transaction PFCG the user role as to be [configured]( https://github.com/azuredevcollege/SAP/blob/master/sap-oauth-saml-flow/SAPConfiguration/README.md#generate-user
 )
 as following:
-![ SAP_ROLE_CONFIG
-]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation
+![ SAP_ROLE_CONFIG]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/SAP_ROLE_CONFIG.png)
+
+
+
+
+{ "error":"invalid_grant","error_description":"Provided authorization grant is invalid. Exception was Attribute 'Recipient' of element 'SubjectConfirmationData' is invalid. For more information, consult the kernel traces or the OAuth 2.0 trouble shooting SAP note 1688545" }
+
+https://www.itsfullofstars.de/2020/05/troubleshooting-recipient-in-subjectconfirmationdata-is-invalid/
+
+
