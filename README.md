@@ -26,16 +26,28 @@ This lab is built based on the SAP NetWeaver AS ABAP and SAP BW 7.5 SP01 on SAP 
 The first chapter of this lab is intended to help validating the SAP Netweaver and Azure AD configuration based on the SAP Netweaver Developer Edition system configuration.
 
 # Development environment setup validation
-After successfully implementing the detailed configuration [documentation]( https://github.com/azuredevcollege/SAP) the Azure AD configuration should look as following based on the SAP CAL development system:
+After successfully implementing the detailed configuration [documentation]( https://github.com/azuredevcollege/SAP) the Azure AD configuration should look as following based on the SAP CAL development system configuration:
 
 ## Azure AD Enterprise Application – SAP Netweaver 
 
 ```
-Identifier: (Entity ID) http://A4H001
-Reply URL: (Assertion Consumer Service URL)
+Identifier (Entity ID): http://A4H001
+Reply URL (Assertion Consumer Service URL):
 https://vhcala4hci.dummy.nodomain:50001/sap/bc/sec/oauth2/token
+
 
 ```
 
+
 ![SAPNETWEAVERENTERPRISECONFIG]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_Netweaver_Config.png
 )
+
+## Azure AD App registrations – SAP Netweaver (Tab “All Applications”)
+![SAPNETWEAVERAPPREDIRECTURI]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_Netweaver_APP_REDIRECT_URLS_IMPLICIT_GRANTS.png)
+
+```
+https://vhcala4hci.dummy.nodomain:50001/sap/bc/sec/oauth2/token
+https://token.botframework.com/.auth/web/redirect
+
+
+```
