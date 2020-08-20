@@ -11,7 +11,7 @@ const {
     TextPrompt,
     WaterfallDialog
 } = require('botbuilder-dialogs');
-const { SimpleSAPNWODataClient } = require('../simple-SAP-graph-client');
+const { SimpleSAPNWODataClient } = require('../simple-SAP-NW-client');
 
 
 const OAUTH_PROMPT = 'OAuthPrompt';
