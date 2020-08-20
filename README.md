@@ -17,13 +17,14 @@ The general setup of the development is described in this predecessor lab and he
 The second essential prerequisite for implementing this lab is the configuration Azure Active Directory(AZ AD) and SAP Netwaver (SAP NW) to support the OAuth2 SAML Bearer Assertion Flow. 
 
 This detailed configuration of Azure AD and SAP NW is displayed in a Azure Developer College repository, provided by the German Microsoft One Commercial Partner(OCP) CSA team. 
-The documentation can be found [here]( https://github.com/azuredevcollege/SAP). 
+The full documentation can be found [here]( https://github.com/azuredevcollege/SAP). 
+ 
+Additional documentation about the assertion flow can be found in the 
+[Principal propagation in a multi-cloud solution between Microsoft Azure and SAP Cloud Platform (SCP)
+]( https://blogs.sap.com/2020/07/17/principal-propagation-in-a-multi-cloud-solution-between-microsoft-azure-and-sap-cloud-platform-scp/) blog by Martin Raepple implemented on an alternative SAP technology. 
 
-Additional documentation about the assertion flow can be found in the Principal propagation in a multi-cloud solution between Microsoft Azure and SAP Cloud Platform (SCP)
- blog by Martin Raepple implemented on an alternative SAP technology 
 
-This lab is built based on the SAP NetWeaver AS ABAP and SAP BW 7.5 SP01 on SAP HANA SP10 [Developer Edition] system, deployed on Azure via SAP [CAL]( https://cal.sap.com/)
-, that can be found [here]( https://blogs.sap.com/2013/05/16/developer-trial-editions-sap-netweaver-application-server-abap-and-sap-business-warehouse-powered-by-sap-hana/). 
+This lab is built based on the SAP NetWeaver AS ABAP and SAP BW 7.5 SP01 on SAP HANA SP10 [Developer Edition] system, deployed on Azure via SAP [CAL]( https://cal.sap.com/), that can be found [here]( https://blogs.sap.com/2013/05/16/developer-trial-editions-sap-netweaver-application-server-abap-and-sap-business-warehouse-powered-by-sap-hana/). 
 
 The first chapter of this lab is intended to help validating the SAP Netweaver and Azure AD configuration based on the SAP Netweaver Developer Edition system configuration.
 
@@ -47,6 +48,9 @@ https://vhcala4hci.dummy.nodomain:50001/sap/bc/sec/oauth2/token
 
 ## Azure AD App registrations – SAP Netweaver (Tab “All Applications”)
 ### Maintained parameters. 
+). 
+
+
 
 ```
 https://vhcala4hci.dummy.nodomain:50001/sap/bc/sec/oauth2/token
@@ -73,3 +77,13 @@ https://mychatbot.com
 ### API permissions granted 
 ![ AAD_CHATBOT_APP_API_PERMISSIONS]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_CHATBOT_APP_API_PERMISSIONS.png
 )
+
+
+Chatbot APP:
+https://login.microsoftonline.com/common/oauth2/v2.0/token
+
+{ "error":"invalid_grant","error_description":"Provided authorization grant is invalid. Exception was Attribute 'Recipient' of element 'SubjectConfirmationData' is invalid. For more information, consult the kernel traces or the OAuth 2.0 trouble shooting SAP note 1688545" }
+
+https://www.itsfullofstars.de/2020/05/troubleshooting-recipient-in-subjectconfirmationdata-is-invalid/
+
+
