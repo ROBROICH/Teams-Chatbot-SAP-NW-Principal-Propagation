@@ -115,20 +115,52 @@ In the SAP transaction PFCG the user role as to be [configured]( https://github.
 as following:
 ![ SAP_ROLE_CONFIG]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/SAP_ROLE_CONFIG.png)
 
-In the SAP transaction SICF, enable OAuth 2.0 Authentication for the OData service by adding the handler ” [/IWFND/CL_SODATA_HTTP_HNDL_OAT]( https://help.sap.com/erp_hcm_ias2_2014_03/helpdata/en/1e/c60c33be784846aad62716b4a1df39/content.htm?no_cache=true)
-”
+In the SAP transaction SICF, enable OAuth 2.0 Authentication for the OData service by adding the handler [/IWFND/CL_SODATA_HTTP_HNDL_OAT]( https://help.sap.com/erp_hcm_ias2_2014_03/helpdata/en/1e/c60c33be784846aad62716b4a1df39/content.htm?no_cache=true)
+
 ![ SICFCONFIG]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/SAP_SERVICE_CONFIG_HANDLER.png)
 
-For matching the Azure AD user to the ABAP user via the user’s email-address the IDP must be configured as following: 
+For matching the Azure AD user to the ABAP user via the user’s email-address the IDP must be configured as following via this transaction / URI: 
 ```
 https://<SAPNETWEAVER_IP_ADDRESS>:PORT/sap/bc/webdynpro/sap/saml2?TRUSTED_PROVIDER_TYPE=OA2#
 ```
 
 
-[/IWFND/CL_SODATA_HTTP_HNDL_OAT]( https://help.sap.com/erp_hcm_ias2_2014_03/helpdata/en/1e/c60c33be784846aad62716b4a1df39/content.htm?no_cache=true)
+
+
+
+![ SAP_NAMEID_FORMAT]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/SAP_NAMEID_FORMAT.png)
+
+## Setup and configuration with Postman  
+After successful configuration and setup of the scenario in Azure AD and the SAP system, the recommendation is to validate the setup using Postman. 
+To utilize the Postman request please follow these steps: 
+### Get an access token via the browser 
+![ POSTMAN_GETAssertionViaBrowser]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/POSTMAN_GETAssertionViaBrowser.png)
+In Postmans address bar please and execute the URI in your browser: 
+```
+https://login.microsoftonline.com/DIRECTORY_TENANT_ID/oauth2/v2.0/authorize?client_id=CLIENT_ID&response_type=token&redirect_uri=https://mychatbot.com&scope=api:// /readSAPOData&nonce=9876543&response_mode=fragment
+```
+After the redirect please copy the access_token “COPY_THIS_TOKEN” from your browsers address bar:
+```
+https://mychatbot.com/#access_token=COPY_THIS_TOKEN&token_type=Bearer&expires_in=3599&scope=YOUR_SCOPE&session_state=
+```
+Now copy the “COPY_THIS_TOKEN” parameter into the value of the key assertion in the Body of the POSTSAML2token POST request in Postman. After completing the POST request a HTTP body with an “access_token” value will be returned. Please again copy this returned access_token to your clipboard. 
+![ POSTMAN_POSTSAMtoken.png]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/POSTMAN_POSTSAM2token.png)
+In the next POST request to configurations have to implemented. 
+First the in the tab Authorization the ABAP OAUTH client username and password have to be maintained as Basic Auth. 
+![ POSTMAN_ POSTSAMl2bearer_1.png]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/POSTMAN_POSTSAMl2bearer_1.png)
+In the second configuration step the “access_token” returned from the previous POST request has be maintained as VALUE for the key “assertion”. 
+When successfully executing the POST request, a HTTP-Body with a new “access_token” is returned. 
+This access token must be saved again for the nest GET request. 
+![ POSTMAN_ POSTSAMl2bearer_2.png]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/POSTMAN_POSTSAMl2bearer_2.png)
+In the final GET request the SAP OData-Services is called and the recent “access_token” has to be maintained as authorization header:
+![ POSTMAN_ POSTSAMl2bearer_2.png]( https://github.com/ROBROICH/ https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/POSTMAN_GETODATA.png)
+
+
 
 { "error":"invalid_grant","error_description":"Provided authorization grant is invalid. Exception was Attribute 'Recipient' of element 'SubjectConfirmationData' is invalid. For more information, consult the kernel traces or the OAuth 2.0 trouble shooting SAP note 1688545" }
 
 https://www.itsfullofstars.de/2020/05/troubleshooting-recipient-in-subjectconfirmationdata-is-invalid/
 
 https://wiki.scn.sap.com/wiki/display/Security/OAuth+2.0+-+Constrained+Authorization+and+Single+Sign-On+for+OData+Services
+
+ 
