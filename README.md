@@ -204,15 +204,11 @@ The OAuth2 SAML Bearer Assertion Flow can be found in the JavaScript class [simp
 
 And the result in the **Bot Framework Emulator** will look as following when using the application:
 ![ BOTEMULATOR_1.png]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/BOTEMULATOR_1.png)
-The further deployment in Microsoft Teams is described in the [previous lab]( https://github.com/ROBROICH/TEAMS-Chatbot-Microsoft-SAP-Graph#install-and-test-the-bot-with-the-emulator-and-teams)
+The further deployment for Microsoft Teams is described in the [previous lab]( https://github.com/ROBROICH/TEAMS-Chatbot-Microsoft-SAP-Graph#install-and-test-the-bot-with-the-emulator-and-teams)
 
-#Further ressources
+# Further resources
 https://docs.microsoft.com/en-us/microsoftteams/platform/bots/how-to/authentication/auth-flow-bot
 https://docs.microsoft.com/de-de/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-access-token
-
-# Trouble shooting
-
-{ "error":"invalid_grant","error_description":"Provided authorization grant is invalid. Exception was Attribute 'Recipient' of element 'SubjectConfirmationData' is invalid. For more information, consult the kernel traces or the OAuth 2.0 trouble shooting SAP note 1688545" }
 
 https://www.itsfullofstars.de/2020/05/troubleshooting-recipient-in-subjectconfirmationdata-is-invalid/
 
