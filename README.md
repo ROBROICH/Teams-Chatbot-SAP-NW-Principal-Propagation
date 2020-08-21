@@ -148,13 +148,15 @@ Now copy the **“COPY_THIS_TOKEN”** parameter into the value of the key asser
 After completing the POST request a HTTP body with an **“access_token”** value will be returned. Please again copy this returned access_token to your clipboard. 
 ![ POSTMAN_POSTSAMtoken.png]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/POSTMAN_POSTSAM2token.png)
 In the next POST request, the following configurations must implemented. 
+
 First the in the tab Authorization the **ABAP OAUTH client username and password** must be maintained as Basic Auth. 
 ![ POSTMAN_ POSTSAMl2bearer_1.png]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/POSTMAN_POSTSAMl2bearer_1.png)
-In the second configuration step the **“access_token”** returned from the previous POST request has be maintained as VALUE for the key **“assertion”**. 
-When successfully executing the POST request, a HTTP-Body with a new “access_token” is returned. 
+In the second configuration step the **“access_token”** returned from the previous POST request has be maintained as **VALUE** for the key **“assertion”**. 
+
+When successfully executing the POST request, a HTTP-Body with a new **“access_token”** is returned. 
 This access token must be saved again for the nest GET request. 
 ![ POSTMAN_ POSTSAMl2bearer_2.png]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/POSTMAN_POSTSAMl2bearer_2.png)
-In the final GET request the SAP OData-Services is called and the recent “access_token” must be maintained as authorization header:
+In the final GET request the SAP OData-Services is called and the recent **“access_token”** must be maintained as **authorization header**:
 
 ![ POSTMAN_ POSTSAMl2bearer_2.png]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/POSTMAN_GETODATA.png)
 
