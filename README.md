@@ -130,23 +130,24 @@ https://<SAPNETWEAVER_IP_ADDRESS>:PORT/sap/bc/webdynpro/sap/saml2?TRUSTED_PROVID
 
 ![ SAP_NAMEID_FORMAT]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/SAP_NAMEID_FORMAT.png)
 
-## Setup and configuration with Postman  
+## Validate the setup and configuration with Postman  
 After successful configuration and setup of the scenario in Azure AD and the SAP system, the recommendation is to validate the setup using Postman. 
-To utilize the Postman request please follow these steps: 
+To utilize the Postman requests the following instruction steps must be implemented: 
 ### Get an access token via the browser 
 ![ POSTMAN_GETAssertionViaBrowser]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/POSTMAN_GETAssertionViaBrowser.png)
-In Postmans address bar please and execute the URI in your browser: 
+The GET requests URI from Postman’s address bar must be executed in a browser: 
 ```
 https://login.microsoftonline.com/DIRECTORY_TENANT_ID/oauth2/v2.0/authorize?client_id=CLIENT_ID&response_type=token&redirect_uri=https://mychatbot.com&scope=api:// /readSAPOData&nonce=9876543&response_mode=fragment
 ```
-After the redirect please copy the access_token “COPY_THIS_TOKEN” from your browsers address bar:
+After the redirect the access_token “COPY_THIS_TOKEN” must be copied fromthe browsers address bar:
 ```
 https://mychatbot.com/#access_token=COPY_THIS_TOKEN&token_type=Bearer&expires_in=3599&scope=YOUR_SCOPE&session_state=
 ```
-Now copy the “COPY_THIS_TOKEN” parameter into the value of the key assertion in the Body of the POSTSAML2token POST request in Postman. After completing the POST request a HTTP body with an “access_token” value will be returned. Please again copy this returned access_token to your clipboard. 
+Now copy the “COPY_THIS_TOKEN” parameter into the value of the key assertion in the Body of the POSTSAML2token POST request in Postman. 
+After completing the POST request a HTTP body with an “access_token” value will be returned. Please again copy this returned access_token to your clipboard. 
 ![ POSTMAN_POSTSAMtoken.png]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/POSTMAN_POSTSAM2token.png)
-In the next POST request to configurations have to implemented. 
-First the in the tab Authorization the ABAP OAUTH client username and password have to be maintained as Basic Auth. 
+In the next POST request, the following configurations have to implemented. 
+First the in the tab Authorization the ABAP OAUTH client username and password must be maintained as Basic Auth. 
 ![ POSTMAN_ POSTSAMl2bearer_1.png]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/POSTMAN_POSTSAMl2bearer_1.png)
 In the second configuration step the “access_token” returned from the previous POST request has be maintained as VALUE for the key “assertion”. 
 When successfully executing the POST request, a HTTP-Body with a new “access_token” is returned. 
