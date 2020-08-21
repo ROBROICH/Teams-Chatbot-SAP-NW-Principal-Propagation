@@ -102,7 +102,7 @@ Scopes: api:///readSAPOData
 
 ## SAP Netweaver Configuration 
 This lab uses a SAP Enterprise Procurement Model (EPM) OData service. 
-The service EPM_REF_APPS_SHOP_SRV is referenced as shop in the EPM demo application. Further information about this shop OData service can be found [here]( https://developers.sap.com/tutorials/odata-02-exploration-epm.html
+The service EPM_REF_APPS_SHOP_SRV is referenced as shop in the EPM demo application. Further information on working with SAP OData services can be found [here]( https://developers.sap.com/tutorials/odata-02-exploration-epm.html
 ).
 ### Configuration of OAUTH 2.0 client
 When using the SAP NW development system. SAP OAuth 2.0 client has to be [configured]( https://github.com/azuredevcollege/SAP/blob/master/sap-oauth-saml-flow/SAPConfiguration/README.md#configure-scopes-in-sap
@@ -115,18 +115,20 @@ In the SAP transaction PFCG the user role as to be [configured]( https://github.
 as following:
 ![ SAP_ROLE_CONFIG]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/SAP_ROLE_CONFIG.png)
 
-
-
-
-
-In the SAP transaction SICF, enable OAuth 2.0 Authentication for the OData service by adding the handler “/IWFND/CL_SODATA_HTTP_HNDL_OAT”
-
+In the SAP transaction SICF, enable OAuth 2.0 Authentication for the OData service by adding the handler ” [/IWFND/CL_SODATA_HTTP_HNDL_OAT]( https://help.sap.com/erp_hcm_ias2_2014_03/helpdata/en/1e/c60c33be784846aad62716b4a1df39/content.htm?no_cache=true)
+”
 ![ SICFCONFIG]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/SAP_SERVICE_CONFIG_HANDLER.png)
 
+For matching the Azure AD user to the ABAP user via the user’s email-address the IDP must be configured as following: 
+```
+https://<SAPNETWEAVER_IP_ADDRESS>:PORT/sap/bc/webdynpro/sap/saml2?TRUSTED_PROVIDER_TYPE=OA2#
+```
 
+
+[/IWFND/CL_SODATA_HTTP_HNDL_OAT]( https://help.sap.com/erp_hcm_ias2_2014_03/helpdata/en/1e/c60c33be784846aad62716b4a1df39/content.htm?no_cache=true)
 
 { "error":"invalid_grant","error_description":"Provided authorization grant is invalid. Exception was Attribute 'Recipient' of element 'SubjectConfirmationData' is invalid. For more information, consult the kernel traces or the OAuth 2.0 trouble shooting SAP note 1688545" }
 
 https://www.itsfullofstars.de/2020/05/troubleshooting-recipient-in-subjectconfirmationdata-is-invalid/
 
-
+https://wiki.scn.sap.com/wiki/display/Security/OAuth+2.0+-+Constrained+Authorization+and+Single+Sign-On+for+OData+Services
