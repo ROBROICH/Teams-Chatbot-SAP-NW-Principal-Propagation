@@ -11,11 +11,9 @@ As prerequisite these users must be maintained in Azure AD and SAP ABAP with att
 
 This for example can be achieved by [Automated user provisioning from SAP SuccessFactors]( https://techcommunity.microsoft.com/t5/azure-active-directory-identity/automated-user-provisioning-from-sap-successfactors-is-now-ga/ba-p/1257370)
 
-In practice the Azure user will be mapped to the corresponding SAP ABAP user when invoking the SAP Netweaver OData service. 
+*This approach allows to reuse existing SAP NW security, authorization- and role-concepts within Azure based applications like the Azure Bot demonstrated in this example.*
 
-*This approach allows to reuse existing SAP NW security, authorization- and role-concepts within Azure based applications like the Azure bot in this example.*
-
-This lab demonstrates on the implementation of a basic Node.JS client as foundation to display the SAP data in Microsoft Teams using an Azure Bot. 
+This lab describes the implementation of a basic Node.JS client as foundation to display the SAP OData service in Microsoft Teams using an Azure Bot. 
 
 # Development environment setup 
 This lab is an extension of the existing [Microsoft & SAP Graph Chatbot]( https://github.com/ROBROICH/TEAMS-Chatbot-Microsoft-SAP-Graph) Hands-On Lab. 
