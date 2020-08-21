@@ -21,7 +21,7 @@ The full documentation can be found [here]( https://github.com/azuredevcollege/S
  
 Additional documentation about the assertion flow can be found in the 
 [Principal propagation in a multi-cloud solution between Microsoft Azure and SAP Cloud Platform (SCP)
-]( https://blogs.sap.com/2020/07/17/principal-propagation-in-a-multi-cloud-solution-between-microsoft-azure-and-sap-cloud-platform-scp/) blog by Martin Raepple implemented on complementary SAP technology. 
+]( https://blogs.sap.com/2020/07/17/principal-propagation-in-a-multi-cloud-solution-between-microsoft-azure-and-sap-cloud-platform-scp/) blog by **Martin Raepple** implemented on complementary SAP technology. 
 
 
 This lab is built based on the *SAP NetWeaver AS ABAP and SAP BW 7.5 SP01 on SAP HANA SP10 [Developer Edition] system, deployed on Azure via SAP* [CAL]( https://cal.sap.com/), that can be found [here]( https://blogs.sap.com/2013/05/16/developer-trial-editions-sap-netweaver-application-server-abap-and-sap-business-warehouse-powered-by-sap-hana/). 
@@ -29,12 +29,12 @@ This lab is built based on the *SAP NetWeaver AS ABAP and SAP BW 7.5 SP01 on SAP
 The first chapter of this lab is intended to help validating the SAP Netweaver and Azure AD configuration based on the SAP Netweaver Developer Edition system configuration.
 
 # Development environment setup validation
-After successfully implementing the detailed configuration [documentation]( https://github.com/azuredevcollege/SAP) the Azure AD configuration should look as following based on the SAP CAL SAP NetWeaver AS ABAP and SAP BW 7.5 SP01 on SAP HANA SP10 [Developer Edition] system configuration:
+After successfully implementing the detailed configuration [documentation]( https://github.com/azuredevcollege/SAP) the Azure AD configuration should look as following based on the *SAP NetWeaver AS ABAP and SAP BW 7.5 SP01 on SAP HANA SP10 [Developer Edition]* system configuration:
 
 ## Azure AD Enterprise Application – SAP Netweaver 
-This App will later be used as clientId with corresponding secret. 
+This App will later be used as *clientId* with corresponding secret. 
 
-###M aintained parameters:
+### Maintained parameters:
 
 ```
 Identifier (Entity ID): http://A4H001
@@ -45,7 +45,7 @@ https://vhcala4hci.dummy.nodomain:50001/sap/bc/sec/oauth2/token
 ![SAPNETWEAVERENTERPRISECONFIG]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_Netweaver_Config.png)
 
 ###Azure AD to SAP ABAP user mapping:
-In this example we used the following parameters to map the Azure AD user via the email-address to the SAP ABAP user via the e-mail address as well:
+In this example we used the following parameters to **map the Azure AD user via the email-address to the SAP ABAP users email-address**:
 ```
 
 Name: user.userprincipalname
@@ -101,8 +101,8 @@ Scopes: api:///readSAPOData
 ![ BotServiceChannel_SAP_NW_OAUTH]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/BotServiceChannel_SAP_NW_OAUTH.png)
 
 ## SAP Netweaver Configuration 
-This lab uses a SAP Enterprise Procurement Model (EPM) OData service. 
-The service EPM_REF_APPS_SHOP_SRV is referenced as shop in the EPM demo application. Further information on working with SAP OData services can be found [here]( https://developers.sap.com/tutorials/odata-02-exploration-epm.html
+This lab uses an SAP Enterprise Procurement Model (EPM) OData service. 
+The service **EPM_REF_APPS_SHOP_SRV** is referenced as shop in the EPM demo application. Further information on working with SAP OData services can be found [here]( https://developers.sap.com/tutorials/odata-02-exploration-epm.html
 ).
 ### Configuration of OAUTH 2.0 client
 When using the SAP NW development system. SAP OAuth 2.0 client has to be [configured]( https://github.com/azuredevcollege/SAP/blob/master/sap-oauth-saml-flow/SAPConfiguration/README.md#configure-scopes-in-sap
@@ -115,7 +115,7 @@ In the SAP transaction PFCG the user role as to be [configured]( https://github.
 as following:
 ![ SAP_ROLE_CONFIG]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/SAP_ROLE_CONFIG.png)
 
-In the SAP transaction SICF, enable OAuth 2.0 Authentication for the OData service by adding the handler [/IWFND/CL_SODATA_HTTP_HNDL_OAT]( https://help.sap.com/erp_hcm_ias2_2014_03/helpdata/en/1e/c60c33be784846aad62716b4a1df39/content.htm?no_cache=true)
+In the SAP transaction **SICF**, enable OAuth 2.0 Authentication for the OData service by adding the handler [/IWFND/CL_SODATA_HTTP_HNDL_OAT]( https://help.sap.com/erp_hcm_ias2_2014_03/helpdata/en/1e/c60c33be784846aad62716b4a1df39/content.htm?no_cache=true)
 
 ![ SICFCONFIG]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/SAP_SERVICE_CONFIG_HANDLER.png)
 
@@ -140,17 +140,17 @@ The GET requests URI from Postman’s address bar must be executed in a browser:
 ```
 https://login.microsoftonline.com/DIRECTORY_TENANT_ID/oauth2/v2.0/authorize?client_id=CLIENT_ID&response_type=token&redirect_uri=https://mychatbot.com&scope=api:// /readSAPOData&nonce=9876543&response_mode=fragment
 ```
-After the redirect the access_token “COPY_THIS_TOKEN” must be copied fromthe browsers address bar:
+After the redirect the access_token **“COPY_THIS_TOKEN”** must be copied from the browsers address bar:
 ```
 https://mychatbot.com/#access_token=COPY_THIS_TOKEN&token_type=Bearer&expires_in=3599&scope=YOUR_SCOPE&session_state=
 ```
-Now copy the “COPY_THIS_TOKEN” parameter into the value of the key assertion in the Body of the POSTSAML2token POST request in Postman. 
-After completing the POST request a HTTP body with an “access_token” value will be returned. Please again copy this returned access_token to your clipboard. 
+Now copy the **“COPY_THIS_TOKEN”** parameter into the value of the key assertion in the Body of the **POSTSAML2token POST** request in Postman. 
+After completing the POST request a HTTP body with an **“access_token”** value will be returned. Please again copy this returned access_token to your clipboard. 
 ![ POSTMAN_POSTSAMtoken.png]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/POSTMAN_POSTSAM2token.png)
-In the next POST request, the following configurations have to implemented. 
-First the in the tab Authorization the ABAP OAUTH client username and password must be maintained as Basic Auth. 
+In the next POST request, the following configurations must implemented. 
+First the in the tab Authorization the **ABAP OAUTH client username and password** must be maintained as Basic Auth. 
 ![ POSTMAN_ POSTSAMl2bearer_1.png]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/POSTMAN_POSTSAMl2bearer_1.png)
-In the second configuration step the “access_token” returned from the previous POST request has be maintained as VALUE for the key “assertion”. 
+In the second configuration step the **“access_token”** returned from the previous POST request has be maintained as VALUE for the key **“assertion”**. 
 When successfully executing the POST request, a HTTP-Body with a new “access_token” is returned. 
 This access token must be saved again for the nest GET request. 
 ![ POSTMAN_ POSTSAMl2bearer_2.png]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/POSTMAN_POSTSAMl2bearer_2.png)
