@@ -199,17 +199,10 @@ Now the application can be started or debugged with the following command:
 ```
 node --inspect-brk index.js
 ```
-And the result in the Bot Framework Emulator will look as following when using the application:
+And the result in the **Bot Framework Emulator** will look as following when using the application:
 ![ BOTEMULATOR_1.png]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/BOTEMULATOR_1.png)
 
 
-
-# Trouble shooting
-
-{ "error":"invalid_grant","error_description":"Provided authorization grant is invalid. Exception was Attribute 'Recipient' of element 'SubjectConfirmationData' is invalid. For more information, consult the kernel traces or the OAuth 2.0 trouble shooting SAP note 1688545" }
-
-https://www.itsfullofstars.de/2020/05/troubleshooting-recipient-in-subjectconfirmationdata-is-invalid/
-
-https://wiki.scn.sap.com/wiki/display/Security/OAuth+2.0+-+Constrained+Authorization+and+Single+Sign-On+for+OData+Services
+The further deployment in Microsoft Teams is described in the [previous lab]( https://github.com/ROBROICH/TEAMS-Chatbot-Microsoft-SAP-Graph#install-and-test-the-bot-with-the-emulator-and-teams)
 
 
