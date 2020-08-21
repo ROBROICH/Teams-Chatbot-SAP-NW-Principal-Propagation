@@ -132,6 +132,7 @@ https://<SAPNETWEAVER_IP_ADDRESS>:PORT/sap/bc/webdynpro/sap/saml2?TRUSTED_PROVID
 
 ## Validate the setup and configuration with Postman  
 After successful configuration and setup of the scenario in Azure AD and the SAP system, the recommendation is to validate the setup using Postman. 
+
 To utilize the Postman requests the following instruction steps must be implemented: 
 ### Get an access token via the browser 
 ![ POSTMAN_GETAssertionViaBrowser]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/POSTMAN_GETAssertionViaBrowser.png)
@@ -153,8 +154,9 @@ In the second configuration step the “access_token” returned from the previo
 When successfully executing the POST request, a HTTP-Body with a new “access_token” is returned. 
 This access token must be saved again for the nest GET request. 
 ![ POSTMAN_ POSTSAMl2bearer_2.png]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/POSTMAN_POSTSAMl2bearer_2.png)
-In the final GET request the SAP OData-Services is called and the recent “access_token” has to be maintained as authorization header:
-![ POSTMAN_ POSTSAMl2bearer_2.png]( https://github.com/ROBROICH/ https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/POSTMAN_GETODATA.png)
+In the final GET request the SAP OData-Services is called and the recent “access_token” must be maintained as authorization header:
+
+![ POSTMAN_ POSTSAMl2bearer_2.png]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/POSTMAN_GETODATA.png)
 
 
 
