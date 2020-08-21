@@ -6,7 +6,8 @@ This hands-on lab demonstrates the implementation of a principal propagation, al
 **In a nutshell:** 
 
 *This scenario enables Azure developers to implement cloud-native Azure applications and consume OData data-sources from SAP including applying the SAP ABAP authorizations of the user-logged on to Azure AD.*
-Prerequisite is this users is that this users has to be maintained in Azure AD and SAP ABAP with attributes that allow a mapping of the users from both systems. 
+AS Prerequisite the users must be maintained in Azure AD and SAP ABAP with attributes that enable a mapping of the users from both systems. 
+This for example can be achieved by [Automated user provisioning from SAP SuccessFactors]( https://techcommunity.microsoft.com/t5/azure-active-directory-identity/automated-user-provisioning-from-sap-successfactors-is-now-ga/ba-p/1257370)
 
 In practice the Azure user will be mapped to the corresponding SAP ABAP user when invoking the SAP Netweaver OData service. 
 
