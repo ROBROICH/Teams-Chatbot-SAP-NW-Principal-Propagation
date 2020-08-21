@@ -2,20 +2,16 @@
 
 # Introduction 
 This hands-on lab demonstrates the implementation of a principal propagation, also known as OAuth2 SAML Bearer Assertion Flow, between Azure AD and SAP Netweaver(NW) OData-services. 
+The scenario of this lab is the implementation of a basic Node.JS client as foundation to display the SAP OData service in Microsoft Teams using an Azure Bot. 
 
 **In a nutshell:** 
-
 *This scenario enables Azure developers to implement cloud-native Azure applications that are enabled to consume OData data-sources from SAP. This includes as well applying the SAP ABAP authorizations of the user-logged on to Azure AD and maintained in SAP NW.* 
 
 *As a result, this approach allows to reuse existing SAP NW security, authorization- and role-concepts within Azure based applications like the Azure Bot demonstrated in this example.*
 
-As prerequisite these users must be maintained in Azure AD and SAP ABAP with attributes that enable a mapping of the users from both systems. 
+As prerequisite for leveraging this scenario, these users must be maintained in Azure AD and SAP ABAP with attributes that enable a mapping of the users from both systems. 
 
 This for example can be achieved by [Automated user provisioning from SAP SuccessFactors]( https://techcommunity.microsoft.com/t5/azure-active-directory-identity/automated-user-provisioning-from-sap-successfactors-is-now-ga/ba-p/1257370)
-
-
-
-This lab describes the implementation of a basic Node.JS client as foundation to display the SAP OData service in Microsoft Teams using an Azure Bot. 
 
 # Development environment setup 
 This lab is an extension of the existing [Microsoft & SAP Graph Chatbot]( https://github.com/ROBROICH/TEAMS-Chatbot-Microsoft-SAP-Graph) Hands-On Lab. 
