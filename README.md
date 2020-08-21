@@ -3,7 +3,7 @@
 # Introduction 
 This hands-on lab demonstrates the implementation of a principal propagation, also known as OAuth2 SAML Bearer Assertion Flow, between Azure AD and SAP Netweaver(NW) OData-services. 
 
-**In a nutshell: ** 
+**In a nutshell:** 
 
 *This scenario enables Azure developers to implement cloud-native Azure applications that are enabled to consume OData data-sources from SAP. This includes as well applying the SAP ABAP authorizations of the user-logged on to Azure AD and maintained in SAP NW. 
 As a result, this approach allows to reuse existing SAP NW security, authorization- and role-concepts within Azure based applications like the Azure Bot demonstrated in this example. *
