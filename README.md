@@ -9,7 +9,7 @@ The scenario of this lab is the implementation of a basic Node.JS client as foun
 
 *As a result, this approach allows to reuse existing SAP NW security, authorization- and role-concepts within Azure based applications like the Azure Bot demonstrated in this example.*
 
-As prerequisite for leveraging this scenario, these users must be maintained in Azure AD and SAP ABAP with attributes that enable a mapping of the users from both systems. 
+As prerequisite for leveraging this scenario, the relevant users for this scenario must be maintained in Azure AD and SAP ABAP with attributes that enable a mapping of the users from both systems. 
 
 This for example can be achieved by [Automated user provisioning from SAP SuccessFactors]( https://techcommunity.microsoft.com/t5/azure-active-directory-identity/automated-user-provisioning-from-sap-successfactors-is-now-ga/ba-p/1257370)
 
@@ -26,7 +26,7 @@ The full documentation can be found [here]( https://github.com/azuredevcollege/S
  
 Additional documentation about the assertion flow can be found in the 
 [Principal propagation in a multi-cloud solution between Microsoft Azure and SAP Cloud Platform (SCP)
-]( https://blogs.sap.com/2020/07/17/principal-propagation-in-a-multi-cloud-solution-between-microsoft-azure-and-sap-cloud-platform-scp/) blog by **Martin Raepple** implemented on the SAP Cloud Platform. 
+]( https://blogs.sap.com/2020/07/17/principal-propagation-in-a-multi-cloud-solution-between-microsoft-azure-and-sap-cloud-platform-scp/) blog by **Martin Raepple** implemented based on the SAP Cloud Platform. 
 
 
 This lab is built and based on the *SAP NetWeaver AS ABAP and SAP BW 7.5 SP01 on SAP HANA SP10 [Developer Edition] system, deployed on Azure via SAP* [CAL]( https://cal.sap.com/), that can be found [here]( https://blogs.sap.com/2013/05/16/developer-trial-editions-sap-netweaver-application-server-abap-and-sap-business-warehouse-powered-by-sap-hana/). 
@@ -88,7 +88,7 @@ https://mychatbot.com
 ![ AAD_CHATBOT_APP_REDIRECT_URLS_IMPLICIT_GRANT
 ]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_CHATBOT_APP_REDIRECT_URLS_IMPLICIT_GRANTS.png)
 ### SAP Netweaver  Enterprise App API permissions granted to the Azure Bot Channel App
-Here we grant API access to the SAP Netweaver Enterprise App:
+Granting API access to the SAP Netweaver Enterprise App:
 ![ AAD_CHATBOT_APP_API_PERMISSIONS]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_CHATBOT_APP_API_PERMISSIONS.png
 )
 
@@ -166,7 +166,36 @@ In the final GET request the SAP OData-Services is called and the recent **“ac
 ![ POSTMAN_ POSTSAMl2bearer_2.png]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/POSTMAN_GETODATA.png)
 
 # Node.JS application setup 
-After 
+After successful validation of the configuration using Postman, the next is to clone the Node.JS project via the following Git command:
+
+```
+git clone https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation.git
+```
+After cloning the project from GitHub, the *.env file must be created and maintained:
+```
+MicrosoftAppId=Application (client ID) of the Teams App (App-ChatBot-Channel-Teams)
+MicrosoftAppPassword= Secret (client secret) of the Teams App (App-ChatBot-Channel-Teams)
+
+connectionNameSAPNW=The Service Provider Connection Settining (AD_CON_SAP_NW_OAUTH)
+clientId= Application (client ID) of the Teams App (App-ChatBot-Channel-Teams)
+clientSecret= Secret (client secret) of the Teams App (App-ChatBot-Channel-Teams)
+
+scope=api:// Application ID URI of the TEAMS Apps /readSAPOData
+tenantID=Azure AD tenant ID
+ressourceName= Identifier (Entity ID) of the SAP Netweaver Enterprise App (SAP Netweaver) (http://A4H001)
+
+sapURL=vhcala4hci.dummy.nodomain
+sapPathOData=/sap/opu/odata/sap/EPM_REF_APPS_PROD_MAN_SRV/Products
+sapPort=50001
+
+clientIdSAPOauth=AZURECHAT1
+scopeSAPOauth=ZEPM_REF_APPS_PROD_MAN_SRV_0001
+
+clientIdSAPUser= The technical ABAP OAuth usr (AZURECHAT1)
+scopeSAPBasicAuth= AZURECHAT1 Password
+sapPathOAuthToken=/sap/bc/sec/oauth2/token
+```
+
 
 # Trouble shooting
 
@@ -176,4 +205,4 @@ https://www.itsfullofstars.de/2020/05/troubleshooting-recipient-in-subjectconfir
 
 https://wiki.scn.sap.com/wiki/display/Security/OAuth+2.0+-+Constrained+Authorization+and+Single+Sign-On+for+OData+Services
 
- 
+
