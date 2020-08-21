@@ -5,7 +5,7 @@ This hands-on lab demonstrates the implementation of a principal propagation, al
 The scenario of this lab is the implementation of a basic Node.JS client as foundation to display the SAP OData service in Microsoft Teams using an Azure Bot. 
 
 **In a nutshell:** 
-*This scenario enables Azure developers to implement cloud-native Azure applications that are enabled to consume OData data-sources from SAP. This includes as well applying the SAP ABAP authorizations of the user-logged on to Azure AD and maintained in SAP NW.* 
+*This scenario enables Azure developers to implement cloud-native Azure applications that are enabled to consume OData data-sources from SAP Netweaver. This includes as well applying the SAP ABAP authorizations of the user-logged on to Azure AD and maintained in SAP NW.* 
 
 *As a result, this approach allows to reuse existing SAP NW security, authorization- and role-concepts within Azure based applications like the Azure Bot demonstrated in this example.*
 
@@ -201,8 +201,18 @@ node --inspect-brk index.js
 ```
 And the result in the **Bot Framework Emulator** will look as following when using the application:
 ![ BOTEMULATOR_1.png]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/BOTEMULATOR_1.png)
-
-
 The further deployment in Microsoft Teams is described in the [previous lab]( https://github.com/ROBROICH/TEAMS-Chatbot-Microsoft-SAP-Graph#install-and-test-the-bot-with-the-emulator-and-teams)
+
+#Further ressources
+https://docs.microsoft.com/en-us/microsoftteams/platform/bots/how-to/authentication/auth-flow-bot
+https://docs.microsoft.com/de-de/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-access-token
+
+# Trouble shooting
+
+{ "error":"invalid_grant","error_description":"Provided authorization grant is invalid. Exception was Attribute 'Recipient' of element 'SubjectConfirmationData' is invalid. For more information, consult the kernel traces or the OAuth 2.0 trouble shooting SAP note 1688545" }
+
+https://www.itsfullofstars.de/2020/05/troubleshooting-recipient-in-subjectconfirmationdata-is-invalid/
+
+https://wiki.scn.sap.com/wiki/display/Security/OAuth+2.0+-+Constrained+Authorization+and+Single+Sign-On+for+OData+Services
 
 
