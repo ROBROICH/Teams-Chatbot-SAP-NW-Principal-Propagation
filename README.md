@@ -1,11 +1,11 @@
 # Hands-On Lab: Implementing a Node.JS client as Chatbot for achieving principal propagation between Azure and SAP Netweaver OData services 
 
 # Introduction 
-This hands-on lab demonstrates the implementation of a principal propagation, also known as OAuth2 SAML Bearer Assertion Flow, between Azure AD and SAP Netweaver OData-services. 
+This hands-on lab demonstrates the implementation of a principal propagation, also known as OAuth2 SAML Bearer Assertion Flow, between Azure AD and SAP Netweaver(NW) OData-services. 
 
 **In a nutshell:** 
 
-*This scenario enables Azure developers to implement cloud-native Azure applications and consume OData data-sources from SAP including applying the SAP ABAP authorizations of the user-logged on to Azure AD.*
+*This scenario enables Azure developers to implement cloud-native Azure applications and consume OData data-sources from SAP including applying the SAP ABAP authorizations of the user-logged on to Azure AD and maintained in SAP NW.*
 
 As prerequisite these users must be maintained in Azure AD and SAP ABAP with attributes that enable a mapping of the users from both systems. 
 
