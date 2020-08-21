@@ -195,6 +195,13 @@ clientIdSAPUser= The technical ABAP OAuth usr (AZURECHAT1)
 scopeSAPBasicAuth= AZURECHAT1 Password
 sapPathOAuthToken=/sap/bc/sec/oauth2/token
 ```
+Now the application can be started or debugged with the following command:
+```
+node --inspect-brk index.js
+```
+And the result in the Bot Framework Emulator will look as following when using the application:
+![ BOTEMULATOR_1.png]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/BOTEMULATOR_1.png)
+
 
 
 # Trouble shooting
