@@ -48,7 +48,7 @@ https://vhcala4hci.dummy.nodomain:50001/sap/bc/sec/oauth2/token
 ![SAPNETWEAVERENTERPRISECONFIG]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_Netweaver_Config.png)
 
 ### Azure AD to SAP ABAP user mapping:
-In this example we used the following parameters to **map the Azure AD user via the email-address to the SAP ABAP users email-address**:
+In this example we used the following **User Attributes and Claims** parameters to map the Azure AD user via the email-address to the **SAP ABAP users email-address**:
 ```
 
 Name: user.userprincipalname
@@ -74,7 +74,7 @@ https://token.botframework.com/.auth/web/redirect
 
 ## Azure AD App registrations – APP-Chatbot-Channel-Teams
 
-### Maintained parameters. 
+### Maintained parameters:
 
 ```
 Redirect URIs:
@@ -166,7 +166,7 @@ In the final GET request the SAP OData-Services is called and the recent **“ac
 # Node.JS application setup 
 After 
 
-# Trouble shooting 
+# Trouble shooting
 
 { "error":"invalid_grant","error_description":"Provided authorization grant is invalid. Exception was Attribute 'Recipient' of element 'SubjectConfirmationData' is invalid. For more information, consult the kernel traces or the OAuth 2.0 trouble shooting SAP note 1688545" }
 
