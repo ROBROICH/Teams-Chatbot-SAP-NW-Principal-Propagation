@@ -6,7 +6,8 @@ This hands-on lab demonstrates the implementation of a principal propagation, al
 **In a nutshell:** 
 
 *This scenario enables Azure developers to implement cloud-native Azure applications that are enabled to consume OData data-sources from SAP. This includes as well applying the SAP ABAP authorizations of the user-logged on to Azure AD and maintained in SAP NW.* 
-*As a result, this approach allows to reuse existing SAP NW security, authorization- and role-concepts within Azure based applications like the Azure Bot demonstrated in this example. *
+
+*As a result, this approach allows to reuse existing SAP NW security, authorization- and role-concepts within Azure based applications like the Azure Bot demonstrated in this example.*
 
 As prerequisite these users must be maintained in Azure AD and SAP ABAP with attributes that enable a mapping of the users from both systems. 
 
