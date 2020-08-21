@@ -44,10 +44,20 @@ https://vhcala4hci.dummy.nodomain:50001/sap/bc/sec/oauth2/token
 
 ![SAPNETWEAVERENTERPRISECONFIG]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_Netweaver_Config.png)
 
+###Azure AD to SAP ABAP user mapping:
+In this example we used the following parameters to map the Azure AD user via the email-address to the SAP ABAP user via the e-mail address as well:
+```
+
+Name: user.userprincipalname
+Unique User Identifier: user.othermail
+
+```
+
+![ AAD_Netweaver_APP_USER_ATTRIBUTE_CLAIM]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_Netweaver_APP_USER_ATTRIBUTE_CLAIM.png)
+
+
 ## Azure AD App registrations – SAP Netweaver (Tab “All Applications”)
 ### Maintained parameters:
-
-
 
 ```
 Redirect URIs:
@@ -73,6 +83,7 @@ https://mychatbot.com
 ![ AAD_CHATBOT_APP_REDIRECT_URLS_IMPLICIT_GRANT
 ]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_CHATBOT_APP_REDIRECT_URLS_IMPLICIT_GRANTS.png)
 ### SAP Netweaver  Enterprise App API permissions granted to the Azure Bot Channel App
+Here we grant API access to the SAP Netweaver Enterprise App:
 ![ AAD_CHATBOT_APP_API_PERMISSIONS]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/AAD_CHATBOT_APP_API_PERMISSIONS.png
 )
 
@@ -84,7 +95,7 @@ Clientid :  Client id of the NW Enterprise APP
 Client secret: Client secret of the NW Enterprise APP 
 Token Exchange URL: https://login.microsoftonline.com/common/oauth2/v2.0/token
 //Application ID URI of the App-Chatbot-Channel-Teams 
-Scopes: api://3d8fa3bd-e980-4a62-95ab-34366dec8c92/readSAPOData
+Scopes: api:///readSAPOData
 ```
 
 ![ BotServiceChannel_SAP_NW_OAUTH]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/BotServiceChannel_SAP_NW_OAUTH.png)
@@ -104,6 +115,13 @@ In the SAP transaction PFCG the user role as to be [configured]( https://github.
 as following:
 ![ SAP_ROLE_CONFIG]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/SAP_ROLE_CONFIG.png)
 
+
+
+
+
+In the SAP transaction SICF, enable OAuth 2.0 Authentication for the OData service by adding the handler “/IWFND/CL_SODATA_HTTP_HNDL_OAT”
+
+![ SICFCONFIG]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/SAP_SERVICE_CONFIG_HANDLER.png)
 
 
 
