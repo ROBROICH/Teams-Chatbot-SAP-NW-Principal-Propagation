@@ -19,6 +19,8 @@ The overall scenario implementation and procedure is described in the following 
 * Validate the setup and configuration with Postman
 * Node.JS application setup
 
+![ScenarioDescription]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/ScenarioDescription.png)
+
 # Development environment setup 
 This lab is an extension of the existing [Microsoft & SAP Graph Chatbot]( https://github.com/ROBROICH/TEAMS-Chatbot-Microsoft-SAP-Graph) Hands-On Lab. 
 
@@ -211,8 +213,10 @@ And the result in the **Bot Framework Emulator** will look as following when usi
 ![ BOTEMULATOR_1.png]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/BOTEMULATOR_1.png)
 The further deployment for Microsoft Teams is described in the [previous lab]( https://github.com/ROBROICH/TEAMS-Chatbot-Microsoft-SAP-Graph#install-and-test-the-bot-with-the-emulator-and-teams)
 # Summary 
-This hands-on lab demonstrates the implementation of principal propagation between Azure and SAP Netweaver utilizing a Node.JS client. In principle the Node.JS client could be refactored to other Azure based technologies to achieve principal propagation for another scenario. 
-Next to implementing this scenario for self-education, further collaboration by directly contributing or maintaining further extension or requirements is highly welcomed. 
+This hands-on lab demonstrates the implementation of principal propagation between Azure and SAP Netweaver utilizing a Node.JS client. 
+In principle the Node.JS client could be refactored to other Azure based technologies to implement principal propagation for different scenarios. 
+
+Next to implementing this scenario for self-education, further collaboration by directly contributing   to this project or maintaining further extension or requirements is highly welcomed. 
  
 # Resources collection 
 * [azuredevcollege/SAP]( https://github.com/azuredevcollege/SAP)
