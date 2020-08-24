@@ -1,17 +1,23 @@
-# Hands-On Lab: Implementing a Node.JS client as Chatbot for achieving principal propagation between Azure and SAP Netweaver OData services 
+# Hands-On Lab: Implementing a Node.JS client as Azure Bot and leveraging principal propagation between Azure and SAP Netweaver OData services 
 
 # Introduction 
 This hands-on lab demonstrates the implementation of a principal propagation, also known as OAuth2 SAML Bearer Assertion Flow, between Azure AD and SAP Netweaver(NW) OData-services. 
-The scenario of this lab is the implementation of a basic Node.JS client to display data from SAP NW OData services in Microsoft Teams using an Azure Bot. 
+The scenario of this lab is a basic Node.JS client to display data from SAP NW OData services in Microsoft Teams using an Azure Bot. 
 
 **In a nutshell:** 
-*This scenario enables Azure developers to implement cloud-native Azure applications that are enabled to consume OData data-sources from SAP Netweaver. This includes as well applying the SAP ABAP authorizations of the user-logged on to Azure AD and maintained in SAP NW.* 
+*This scenario enables Azure developers to implement cloud-native Azure applications that are enabled to consume OData data-sources from SAP Netweaver. This includes applying and mapping the SAP ABAP authorizations of the same user-logged on to Azure AD and maintained in SAP NW.* 
 
 *As a result, this approach allows to reuse existing SAP NW security, authorization- and role-concepts within Azure based applications like the Azure Bot demonstrated in this example.*
 
 As prerequisite for leveraging this scenario, the relevant users for this scenario must be maintained in Azure AD and SAP ABAP with attributes that enable a mapping of the users from both systems. 
 
 This for example can be achieved by [Automated user provisioning from SAP SuccessFactors]( https://techcommunity.microsoft.com/t5/azure-active-directory-identity/automated-user-provisioning-from-sap-successfactors-is-now-ga/ba-p/1257370)
+
+The overall scenario implementation and procedure is described in the following sections: 
+* Development environment setup 
+* Development environment setup validation
+* Validate the setup and configuration with Postman
+* Node.JS application setup
 
 # Development environment setup 
 This lab is an extension of the existing [Microsoft & SAP Graph Chatbot]( https://github.com/ROBROICH/TEAMS-Chatbot-Microsoft-SAP-Graph) Hands-On Lab. 
