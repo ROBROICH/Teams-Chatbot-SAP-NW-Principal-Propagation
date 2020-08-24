@@ -15,7 +15,7 @@ This for example can be achieved by [Automated user provisioning from SAP Succes
 
 The overall scenario implementation and procedure is described in the following sections: 
 * Development environment setup 
-* Development environment setup validation
+* Development environment validation
 * Validate the setup and configuration with Postman
 * Node.JS application setup
 
@@ -31,15 +31,14 @@ This configuration of Azure AD and SAP NW in details is explained in a Azure Dev
 The full documentation can be found [here]( https://github.com/azuredevcollege/SAP). 
  
 Additional documentation about the assertion flow can be found in the 
-[Principal propagation in a multi-cloud solution between Microsoft Azure and SAP Cloud Platform (SCP)
-]( https://blogs.sap.com/2020/07/17/principal-propagation-in-a-multi-cloud-solution-between-microsoft-azure-and-sap-cloud-platform-scp/) blog by **Martin Raepple** implemented based on the SAP Cloud Platform. 
+[Principal propagation in a multi-cloud solution between Microsoft Azure and SAP Cloud Platform (SCP)]( https://blogs.sap.com/2020/07/17/principal-propagation-in-a-multi-cloud-solution-between-microsoft-azure-and-sap-cloud-platform-scp/) blog by **Martin Raepple** implemented based on the SAP Cloud Platform. 
 
 
 This lab is built and based on the *SAP NetWeaver AS ABAP and SAP BW 7.5 SP01 on SAP HANA SP10 [Developer Edition] system, deployed on Azure via SAP* [CAL]( https://cal.sap.com/), that can be found [here]( https://blogs.sap.com/2013/05/16/developer-trial-editions-sap-netweaver-application-server-abap-and-sap-business-warehouse-powered-by-sap-hana/). 
 
 The first chapter of this lab is intended to help validating the SAP Netweaver and Azure AD configuration based on the **SAP Netweaver Developer Edition system configuration** to make the scenario easier to reproduce.
 
-# Development environment setup validation
+# Development environment validation
 After successfully implementing the detailed configuration [documentation]( https://github.com/azuredevcollege/SAP) the Azure AD configuration should look as following based on the *SAP NetWeaver AS ABAP and SAP BW 7.5 SP01 on SAP HANA SP10 [Developer Edition]* system configuration:
 
 ## Azure AD Enterprise Application – SAP Netweaver 
@@ -211,13 +210,21 @@ The OAuth2 SAML Bearer Assertion Flow can be found in the JavaScript class [simp
 And the result in the **Bot Framework Emulator** will look as following when using the application:
 ![ BOTEMULATOR_1.png]( https://github.com/ROBROICH/Teams-Chatbot-SAP-NW-Principal-Propagation/blob/master/images/BOTEMULATOR_1.png)
 The further deployment for Microsoft Teams is described in the [previous lab]( https://github.com/ROBROICH/TEAMS-Chatbot-Microsoft-SAP-Graph#install-and-test-the-bot-with-the-emulator-and-teams)
+# Summary 
+This hands-on lab demonstrates the implementation of principal propagation between Azure and SAP Netweaver utilizing a Node.JS client. In principle the Node.JS client could be refactored to other Azure based technologies to achieve principal propagation for another scenario. 
+Next to implementing this scenario for self-education, further collaboration by directly contributing or maintaining further extension or requirements is highly welcomed. 
+ 
+# Resources collection 
+*[azuredevcollege/SAP]( https://github.com/azuredevcollege/SAP)
+*[Principal propagation in a multi-cloud solution between Microsoft Azure and SAP Cloud Platform (SCP)]( https://blogs.sap.com/2020/07/17/principal-propagation-in-a-multi-cloud-solution-between-microsoft-azure-and-sap-cloud-platform-scp/)
+*[Microsoft Teams authentication flow for bots]( https://github.com/ROBROICH/TEAMS-Chatbot-Microsoft-SAP-Graph#install-and-test-the-bot-with-the-emulator-and-teams)
+*[Microsoft identity platform and OAuth 2.0 authorization code flow]( https://docs.microsoft.com/de-de/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-access-token)
+*[Troubleshooting – Recipient in SubjectConfirmationData is invalid]( https://docs.microsoft.com/de-de/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-access-token)
+*[OAuth 2.0 - Constrained Authorization and Single Sign-On for OData Services
+]( https://wiki.scn.sap.com/wiki/display/Security/OAuth+2.0+-+Constrained+Authorization+and+Single+Sign-On+for+OData+Services)
 
-# Further resources
-https://docs.microsoft.com/en-us/microsoftteams/platform/bots/how-to/authentication/auth-flow-bot
-https://docs.microsoft.com/de-de/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-access-token
 
-https://www.itsfullofstars.de/2020/05/troubleshooting-recipient-in-subjectconfirmationdata-is-invalid/
 
-https://wiki.scn.sap.com/wiki/display/Security/OAuth+2.0+-+Constrained+Authorization+and+Single+Sign-On+for+OData+Services
+
 
 
