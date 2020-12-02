@@ -31,7 +31,7 @@ class UserProfileDialog extends ComponentDialog {
         // Prompt for OAUTH
         this.addDialog(
             new OAuthPrompt(OAUTH_PROMPT, {
-                connectionName: process.env.connectionNameSAPNW,
+                connectionName: process.env.connectionName,
                 text: 'Please Sign In',
                 title: 'Sign In',
                 timeout: 300000
@@ -73,7 +73,6 @@ class UserProfileDialog extends ComponentDialog {
 
     // Here we start
     async promptStep(stepContext) {
-        await stepContext.context.sendActivity('Welcome to the SAP Netweaver Principal Propagation Demo!.');
         return await stepContext.beginDialog(OAUTH_PROMPT);
     }
 
@@ -111,12 +110,12 @@ class UserProfileDialog extends ComponentDialog {
         const tokenResponse = stepContext.result;
         if (tokenResponse && tokenResponse.token) {
             await stepContext.context.sendActivity(`Here is your token ${ tokenResponse.token }`);
-            return await stepContext.prompt(TEXT_PROMPT, { prompt: 'Please type \'SAP Products\' to display the products from SAP)' });
+            return await stepContext.prompt(TEXT_PROMPT, { prompt: 'Wich \'SAP Product\' are you interested in? For instance HT-1000.' });
         }
         return await stepContext.endDialog();
     }
 
-    async actionStep(step) {
+   /* async actionStep(step) {
         // Get the token from the previous step. Note that we could also have gotten the
         // token directly from the prompt itself. There is an example of this in the next method.
         const tokenResponse = step.result;
@@ -126,7 +125,7 @@ class UserProfileDialog extends ComponentDialog {
         }
         await step.context.sendActivity('Login was not successful please try again.');
         return await step.endDialog();
-    }
+    }*/
 
     async commandStep(step) {
         step.values.command = step.result;
@@ -162,7 +161,7 @@ class UserProfileDialog extends ComponentDialog {
                     var simpleSAPADClient = new SimpleSAPNWODataClient();
 
                     // Execute token assertion and ODATA-Call 
-                    products = await simpleSAPADClient.getSAPNWODataStepOne(tokenResponse.token);
+                    products = await simpleSAPADClient.getSAPNWODataStepOne(tokenResponse.token, step.context._activity.text);
 
                 }
 
@@ -178,11 +177,11 @@ class UserProfileDialog extends ComponentDialog {
                     var product = products.d.results[cnt];
                     var productImageURL = imageURL + product.ImageUrl;
                     const card = CardFactory.heroCard(
-                        'Product Id ' + product.Id + ' Description ' + product.Description,
-                        'Name: ' + product.Name + ' Supplier: ' + product.Supplier.SupplierName,
+                        'Product Id ' + product.ProductUUID /*+ ' Description ' + product.Description*/,
+                        'Name: ' + product.Product, //+ ' Supplier: ' + product.Supplier.SupplierName,
                         [{ type: 'Image', alt: 'SAP Logo', url: productImageURL, height: '5px', width: '5px' }],
                         ['Order via email'],
-                        { subtitle: `Price : ${ product.Price } Main Category: ${ product.MainCategoryId }` }
+                        { subtitle: `Price : ${ product.Price } Product Category: ${ product.ProductCategory }` }
                     );
                     reply.attachments.push(card);
                 }

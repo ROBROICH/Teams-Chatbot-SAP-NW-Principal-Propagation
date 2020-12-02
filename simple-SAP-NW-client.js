@@ -3,6 +3,7 @@
 
 var https = require('https');
 var querystring = require('querystring');
+var myProductId = null;
 
 // Constants
 // The path to the Azure AD
@@ -45,9 +46,10 @@ class SimpleSAPNWODataClient {
         this.stringReplace = STRING_REPLACE_TENANT;
     }
 
-    async getSAPNWODataStepOne(assertionValue) {
+    async getSAPNWODataStepOne(assertionValue, productId) {
         // Path to get OAuth token for passed assertion value
         this.servicePath = PATH_OAUTH.replace(this.stringReplace, this.tenantID);
+        myProductId = productId;
 
         var postData = querystring.stringify({
             // The assertion passed from Teams OAuth control
@@ -146,7 +148,8 @@ class SimpleSAPNWODataClient {
                     headers: {
                         Authorization: authType + ' ' + bearerToken,
                         Cookie: querystring.stringify(SAP_CLIENT_COOKIE),
-                        Accept: MIME_TYPE_JSON
+                        Accept: MIME_TYPE_JSON,
+                        productid: myProductId //HT-1000
                     }
                 },
                 (response) => {
@@ -169,7 +172,7 @@ class SimpleSAPNWODataClient {
 
         // Function that gets the Bearer token  granted from SAP
         // See Postman step 3
-        var getBearerTokenFromSAP = function(bearerToken) {
+        var getBearerTokenFromXSUAA = function(bearerToken) {
             return new Promise(function(resolve, reject) {
                 // The dev system doesn't have signed cerificates.
                 // Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
@@ -177,20 +180,13 @@ class SimpleSAPNWODataClient {
 
                 // The SAP clientId and scope configured here:
                 // https://github.com/azuredevcollege/SAP/blob/master/sap-oauth-saml-flow/SAPConfiguration/README.md#configure-client-in-sap
-                const clientIdSAPOauth = process.env.clientIdSAPOauth;
-                const scopeSAPOauth = process.env.scopeSAPOauth;
-
-                // The credentials of the SAP technical OAUTH user.
-                // https://github.com/azuredevcollege/SAP/blob/master/sap-oauth-saml-flow/SAPConfiguration/README.md#generate-user
                 const clientIdSAPUser = process.env.clientIdSAPUser;
                 const scopeSAPBasicAuth = process.env.scopeSAPBasicAuth;
 
                 // Body parameters for POST request.
                 var postData = querystring.stringify({
                     assertion: bearerToken,
-                    grant_type: REQUESTED_TOKEN_TYPE_SAML_BEARER,
-                    client_id: clientIdSAPOauth,
-                    scope: scopeSAPOauth
+                    grant_type: REQUESTED_TOKEN_TYPE_SAML_BEARER
                 });
 
                 // The credentials of the SAP technical OAUTH user.
@@ -225,10 +221,11 @@ class SimpleSAPNWODataClient {
                     res.on('end', function() {
                         console.log(result);
                         // Success and we only return the access_token from JSON
+                        console.log("XSUAA:"+result)
                         resolve((JSON.parse(result).access_token));
                     });
                     res.on('error', function(err) {
-                        console.log(err);
+                        console.log("getBearerTokenFromXSUAA:"+err);
                     });
                 });
 
@@ -246,7 +243,7 @@ class SimpleSAPNWODataClient {
         // Return the Odata result set
         // See Java-Sript Promise handling:
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-        var resultSet = await getBearerTokenFromSAP(bearerToken).then(getFromSAPODataService);
+        var resultSet = await getBearerTokenFromXSUAA(bearerToken).then(getFromSAPODataService);
         return resultSet;
     }
 }
