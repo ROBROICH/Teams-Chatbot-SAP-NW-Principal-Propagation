@@ -194,14 +194,13 @@ class SimpleSAPNWODataClient {
                 var auth = 'Basic ' + Buffer.from(clientIdSAPUser + ':' + scopeSAPBasicAuth).toString('base64');
 
                 // Configure the URI for the SAP OData service 
-                const URL = process.env.sapURL;
-                const port = process.env.sapPort;
+                const URL = process.env.sapXSUAAURL;
                 const sapPathOAuthToken = process.env.sapPathOAuthToken;
 
                 // request option
                 var options = {
                     host: URL,
-                    port: port,
+                    port: 443,
                     method: 'POST',
                     path: sapPathOAuthToken,
                     headers: {

@@ -175,7 +175,7 @@ class UserProfileDialog extends ComponentDialog {
                 const reply = { attachments: [], attachmentLayout: AttachmentLayoutTypes.List };
                 for (let cnt = 0; cnt < numberOfProducts; cnt++) {
                     var product = products.d.results[cnt];
-                    var productImageURL = imageURL + product.ImageUrl;
+                    var productImageURL = imageURL + product.ProductPictureURL;
                     const card = CardFactory.heroCard(
                         'Product Id ' + product.ProductUUID /*+ ' Description ' + product.Description*/,
                         'Name: ' + product.Product, //+ ' Supplier: ' + product.Supplier.SupplierName,
